@@ -1,0 +1,23 @@
+[2023-05-10 22:49:48] TFJSPTester.py(120) : vali_env info: num_jobs:40, num_opes:808 num_mas:20, num_veh:20, batch_size:50
+[2023-05-10 22:50:16] TFJSPTester.py(67) : matnet_jobcentric_10_6_6 Score: 1150.00 | SpandTime: 20.63 
+[2023-05-10 22:51:07] TFJSPTester.py(67) : hgnn_jobcentric_10_6_6 Score: 1189.06 | SpandTime: 45.02 
+[2023-05-10 22:51:30] TFJSPTester.py(67) : dtrans_jobcentric_10_6_6_EncV5_DecV5 Score: 967.52 | SpandTime: 16.21 
+[2023-05-10 22:51:47] TFJSPTester.py(67) : dtrans_jobcentric_10_6_6_EncV0_DecV5 Score: 989.32 | SpandTime: 10.88 
+[2023-05-10 22:52:09] TFJSPTester.py(67) : dtrans_jobcentric_10_6_6_EncV5_DecV0 Score: 1276.66 | SpandTime: 15.62 
+[2023-05-10 22:52:27] TFJSPTester.py(67) : dtrans_jobcentric_10_6_6_EncV1_DecV5 Score: 996.80 | SpandTime: 12.08 
+[2023-05-10 22:52:52] TFJSPTester.py(67) : dtrans_jobcentric_10_6_6_EncV3_DecV5 Score: 990.32 | SpandTime: 18.19 
+[2023-05-10 22:53:15] TFJSPTester.py(67) : dtrans_jobcentric_10_6_6_EncV6_DecV5 Score: 981.12 | SpandTime: 16.69 
+[2023-05-10 22:53:37] TFJSPTester.py(67) : dtrans_jobcentric_10_6_6_EncV4_DecV5 Score: 965.28 | SpandTime: 15.59 
+[2023-05-10 22:54:02] TFJSPTester.py(67) : dtrans_jobcentric_10_6_6_EncV7_DecV5 Score: 969.42 | SpandTime: 19.16 
+[2023-05-10 22:54:26] TFJSPTester.py(67) : dtrans_jobcentric_10_6_6_EncV8_DecV5 Score: 970.90 | SpandTime: 17.56 
+[2023-05-10 22:54:55] TFJSPTester.py(67) : gtrans_jobcentric_10_6_6_EncV1_DecV5 Score: 954.28 | SpandTime: 22.67 
+[2023-05-10 22:55:34] TFJSPTester.py(67) : gtrans_jobcentric_10_6_6_EncV2_DecV5 Score: 954.80 | SpandTime: 32.41 
+[2023-05-10 22:56:12] TFJSPTester.py(67) : gtrans_jobcentric_5_3_3_EncV2_DecV5 Score: 1024.48 | SpandTime: 32.38 
+[2023-05-10 22:56:51] TFJSPTester.py(67) : gtrans_jobcentric_10_6_3_EncV2_DecV5 Score: 1033.38 | SpandTime: 32.45 
+[2023-05-10 22:57:30] TFJSPTester.py(67) : gtrans_jobcentric_10_3_6_EncV2_DecV5 Score: 1042.76 | SpandTime: 32.45 
+[2023-05-10 22:57:52] TFJSPTester.py(67) : dtrans_jobcentric_10_6_6_EncV4_DecV5_sec Score: 955.14 | SpandTime: 15.64 
+[2023-05-10 22:58:14] TFJSPTester.py(67) : dtrans_jobcentric_5_3_3_EncV4_DecV5 Score: 1028.14 | SpandTime: 15.60 
+[2023-05-10 22:58:33] TFJSPTester.py(67) : dispatch_spt Score: 1204.22 | SpandTime: 13.43 
+[2023-05-10 22:58:53] TFJSPTester.py(67) : dispatch_lpt Score: 1277.78 | SpandTime: 13.42 
+[2023-05-10 22:59:14] TFJSPTester.py(67) : dispatch_fifo Score: 1229.68 | SpandTime: 13.90 
+[2023-05-10 23:18:33] test.py(504) : GA Score: 1604.00 | SpandTime: 1159.16 
