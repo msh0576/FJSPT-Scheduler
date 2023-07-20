@@ -1,0 +1,235 @@
+{
+  "env_paras": {
+    "num_jobs": 10,
+    "num_opes": 30,
+    "nums_ope": [4, 4, 6, 5, 6, 4, 6, 4, 5, 4],
+    "num_mas": 6,
+    "num_vehs": 6,
+    "batch_size": 50,
+    "ope_feat_dim" : 8,
+    "ma_feat_dim" : 3,
+    "veh_feat_dim": 5,
+    "show_mode": "draw",
+    "valid_batch_size": 1,
+    "proctime_per_ope_max": 30,
+    "transtime_btw_ma_max": 20,
+    "dynamic": {
+      "min_ope_per_job": 1,
+      "max_ope_per_job": 10
+    },
+    "meta_rl": null,
+    "new_job": false,
+    "num_newJobs": 5
+  },
+  "change_paras": {
+    "enable": false,
+    "change_interval": 10,
+    "num_candidate": 11,
+    "env_paras": {
+      "num_jobs": [10, 10, 10, 15, 15, 15, 15, 15, 20, 20, 20],
+      "num_mas":  [5, 5, 10, 5, 5, 10, 10, 15, 5, 5, 10],
+      "num_vehs": [5, 10, 10, 5, 10, 10, 15, 15, 5, 10, 10]
+    }
+  },
+
+  "model_paras": {
+    "algorithm": null,
+
+    "_comment1": "for hgnn below",
+    "in_size_ma": 3,
+    "out_size_ma": 10,
+    "in_size_ope": 8,
+    "out_size_ope": 10,
+    "in_size_veh": 5,
+    "out_size_veh": 8,
+    "hidden_size_ope": 128,
+    "num_heads": [1, 1],
+    "dropout": 0.2,
+    "n_latent_actor": 64,
+    "n_latent_critic": 64,
+    "n_hidden_actor": 3,
+    "n_hidden_critic": 3,
+    "_comment_action_dim": "below action_dim is rule: spt, lpt, fifo, lum_spt, lum_lpt",
+    "action_dim": 4,
+    "time_length": 5, 
+
+    "_comment2": "for matnet below",
+    "stage_cnt": 1,
+    "machine_cnt_list": [5],
+    "embedding_dim": 128,
+    "encoder_layer_num": 2,
+    "qkv_dim": 8,
+    "head_num": 8,
+    "logit_clipping": 10,
+    "ff_hidden_dim": 512,
+    "ms_hidden_dim": 16,
+    "eval_type": "argmax",
+    "one_hot_seed_cnt": 7,
+    "checkpoint_encoder":null,
+    "shrink_size": null,
+    "hidden_dim": 128,
+    "tanh_clipping": 10,
+    "normalization": "batch",
+
+    "abs_pe": false,
+    "abs_pe_dim": 20,
+    "edge_dim":20,
+    "num_edge_feat":0,
+    "job_centric":true
+  },
+
+
+  "train_paras": {
+    "lr": 0.0002,
+    "betas": [0.9, 0.999],
+    "gamma": 1.0,
+    "K_epochs": 3,
+    "eps_clip": 0.2,
+    "A_coeff": 1.0,
+    "vf_coeff": 0.5,
+    "entropy_coeff": 0.01,
+    "max_iterations": 1000,
+    "save_timestep": 10,
+    "update_timestep": 1,
+    "viz": false,
+    "viz_name": "Paper_1005",
+    "minibatch_size": 512,
+    "parallel_iter": 20,
+    "epochs": 1000,
+    "train_episodes": 1000,
+    "max_grad_norm": 1.0,
+    "_comment1": "for matnet below",
+    "logging": {
+        "model_save_interval": 20,
+        "img_save_interval": 20,
+        "log_image_params_1": {
+          "json_foldername": "log_image_style",
+          "filename": "style.json"
+        },
+        "log_image_params_2": {
+            "json_foldername": "log_image_style",
+            "filename": "style_loss.json"
+        }
+    },
+    "model_load": {
+        "enable": false,
+        "path": "./result/20221103_094707_heteronet_train",
+        "epoch": 10,
+        "load_model_only": false
+    },
+    "meta_rl":{
+      "enable": false,
+      "minibatch": 10,
+      "num_graph": 10,
+      "use_subgraphs": true
+    },
+    "subprob": true
+  },
+
+
+  "test_paras": {
+    "num_test": 1,
+    "num_jobs": 10,
+    "num_opes": 20,
+    "num_mas": 6,
+    "num_vehs": 6,
+    "new_job": false,
+    "num_newJobs": 5,
+    "dynamic": {
+      "min_ope_per_job": 1,
+      "max_ope_per_job": 5
+    },
+    "meta_rl": null,
+    "ope_feat_dim" : 8,
+    "ma_feat_dim" : 3,
+    "veh_feat_dim": 5,
+    "show_mode": "print",
+    "validate_epoch": 10,
+    "models": {
+      "model1_load": {
+        "name": "matnet_10_6_6",
+        "path": "./result/20230426_144354_matnet_jobcentric_10_6_6", 
+        "epoch": 1000,  
+        "load_model_only": true
+      },
+      "model2_load": {
+        "name": "hgnn_10_6_6",
+        "path": "./result/20230427_094750_hgnn_jobcentric_10_6_6", 
+        "epoch": 1000,  
+        "load_model_only": true
+      },
+      
+      "model3_load": {
+        "name": "ghs_selfatten_10_6_6",
+        "path": "./result/20230503_094222_dtrans_jobcentric_10_6_6_EncV1_DecV5", 
+        "epoch": 1000,  
+        "load_model_only": true
+      },
+      "model4_load": {
+        "name": "hgs_10_6_6",
+        "path": "./result/20230504_165911_gtrans_jobcentric_10_6_6_EncV2_DecV5", 
+        "epoch": 1000,  
+        "load_model_only": true
+      },
+      "model5_load": {
+        "name": "hgs_5_3_3",
+        "path": "./result/20230508_135053_gtrans_jobcentric_5_3_3_EncV2_DecV5", 
+        "epoch": 1000,  
+        "load_model_only": true
+      },
+      "model6_load": {
+        "name": "hgs_10_6_3",
+        "path": "./result/20230508_135451_gtrans_jobcentric_10_6_3_EncV2_DecV5", 
+        "epoch": 1000,  
+        "load_model_only": true
+      },
+      "model7_load": {
+        "name": "hgs_10_3_6",
+        "path": "./result/20230508_135332_gtrans_jobcentric_10_3_6_EncV2_DecV5", 
+        "epoch": 1000,  
+        "load_model_only": true
+      },
+      "model8_load": {
+        "name": "hgs_nograph",
+        "path": "./result/20230515_081059_dtrans_jobcentric_5_3_3_EncV0_DecV0", 
+        "epoch": 1000,  
+        "load_model_only": true
+      }
+      
+      
+      
+      
+      
+      
+      
+      
+    },
+    "saved_problem_folder": "./data",
+    "saved_problem_filename": "job10_machine5.pt",
+    "problem_count": 1000,
+    "test_batch_size": 1000,
+    "augmentation_enable": true,
+    "aug_factor": 128,
+    "aug_batch_size": 200
+  },
+
+
+  "optimizer_paras": {
+    "optimizer": {
+        "lr": 1e-4,
+        "weight_decay": 1e-6
+    },
+    "scheduler": {
+        "milestones": [101, 151],
+        "gamma": 0.1
+    }
+  },
+
+
+  "logger_paras": {
+    "log_file": {
+        "desc": "heteronet_train",
+        "filename": "log.txt"
+    }
+  }
+}
